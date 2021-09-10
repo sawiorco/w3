@@ -20,13 +20,24 @@ export function List({ className, items, ...rest }: IList) {
       {items.map((item, index) => {
         const { mood } = item
 
+        function getMoodColor() {
+          switch (mood) {
+            case "negative":
+              return "text-red-400"
+            case "positive":
+              return "text-green-400"
+            case "kudos":
+              return "text-yellow-400"
+          }
+        }
+
         return (
           <li
             key={index}
             className="flex items-center overflow-hidden bg-gray-800 rounded-lg"
           >
             <span
-              className={`bg-gray-700 self-stretch text-${moodColors[mood]}-400 items-center flex p-5`}
+              className={`bg-gray-700 self-stretch ${getMoodColor()} items-center flex p-5`}
             >
               {mood === "kudos" && <FontAwesomeIcon icon={faStars} />}
               {mood === "positive" && <FontAwesomeIcon icon={faThumbsUp} />}

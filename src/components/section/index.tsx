@@ -1,17 +1,23 @@
-import React, { ReactNode } from "react"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import {
-  faThumbsUp,
-  faCircleExclamation,
-} from "@fortawesome/pro-thin-svg-icons"
+import React from "react"
 import classNames from "classnames"
 
-export function Section({ className, title, children, ...rest }: ISection) {
+export function Section({
+  className,
+  title,
+  head,
+  children,
+  ...rest
+}: ISection) {
   return (
     <section className={classNames(className)} {...rest}>
       <header className="relative flex items-center">
         <div className="absolute flex-grow w-1 h-full bg-green-400 rounded-full" />
-        <h2 className="ml-2 font-thin">{title}</h2>
+
+        <div className="flex items-center ml-2">
+          <h2 className="font-thin">{title}</h2>
+
+          {head}
+        </div>
       </header>
 
       {children}
@@ -21,6 +27,7 @@ export function Section({ className, title, children, ...rest }: ISection) {
 
 interface ISection
   extends Omit<React.HtmlHTMLAttributes<HTMLDivElement>, "title"> {
-  title: string
+  title: React.ReactNode
   children: React.ReactNode
+  head?: React.ReactNode
 }

@@ -1,7 +1,8 @@
 ---
 title: "Destiny 2"
 slug: "/review/destiny-2"
-coverImage: "./cover.png"
+posterImage: "./poster.png"
+heroImage: "./hero.webp"
 youtubeTrailerId: "_XlFBp_ZmyE"
 createdAt: "2021-09-09"
 updatedAt: "2021-09-09"
@@ -10,7 +11,8 @@ isPublished: false
 
 <Proscons
   pros={[
-    "You like killing stuff",
+    "You like frenectic run & gun",
+    "You feel like killing everything that moves",
     "You like juicy loot",
     "You want to feel powerful",
   ]}
@@ -22,10 +24,36 @@ isPublished: false
   ]}
 />
 
-<Features
-  features={[
+<Section className="mt-10" title="Worth mentioning...">
+  <List
+    className="mt-5"
+    items={[
+      {
+        mood: "kudos",
+        content:
+          "Moving, jumping, shooting, killing: all the animations are juicy and satisfying.",
+      },
+    ]}
+  />
+</Section>
+
+<Replayability
+  value={2}
+  checklist={[
     {
-      content: "Shooting, jumping and killing animations are satisfying",
+      isChecked: true,
+      title: "Loot & more loot",
+      body: "There are so many items you can loot. To see everything would take a while.",
+    },
+    {
+      isChecked: true,
+      title: "Class System",
+      body: "There are 3 different classes you can choose from. Hundreds of hours to explore them all.",
+    },
+    {
+      isChecked: true,
+      title: "Events",
+      body: "There's always unique events happening.",
     },
   ]}
 />

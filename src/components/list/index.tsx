@@ -21,34 +21,27 @@ export function List({ className, items, ...rest }: IList) {
         const { mood } = item
 
         return (
-          <li key={index} className="items-center p-5 bg-gray-800 rounded-lg">
-            <header className="flex items-center">
-              <span
-                className={`px-2 py-1 border border-solid border-${moodColors[mood]}-400 text-${moodColors[mood]}-400 rounded-full`}
-              >
-                {mood === "kudos" && <FontAwesomeIcon icon={faStars} />}
-                {mood === "positive" && <FontAwesomeIcon icon={faThumbsUp} />}
-                {mood === "negative" && (
-                  <FontAwesomeIcon
-                    className="relative top-0.5"
-                    icon={faThumbsDown}
-                  />
-                )}
-                {mood === "alert" && (
-                  <FontAwesomeIcon icon={faCircleExclamation} />
-                )}
-              </span>
+          <li
+            key={index}
+            className="flex items-center overflow-hidden bg-gray-800 rounded-lg"
+          >
+            <span
+              className={`bg-gray-700 self-stretch text-${moodColors[mood]}-400 items-center flex p-5`}
+            >
+              {mood === "kudos" && <FontAwesomeIcon icon={faStars} />}
+              {mood === "positive" && <FontAwesomeIcon icon={faThumbsUp} />}
+              {mood === "negative" && (
+                <FontAwesomeIcon
+                  className="relative top-0.5"
+                  icon={faThumbsDown}
+                />
+              )}
+              {mood === "alert" && (
+                <FontAwesomeIcon icon={faCircleExclamation} />
+              )}
+            </span>
 
-              <small
-                className={`ml-2 font-semibold uppercase text-${moodColors[mood]}-400`}
-              >
-                {mood === "kudos" && <>Kudos</>}
-                {mood === "positive" && <>Good</>}
-                {mood === "negative" && <>Bad</>}
-              </small>
-            </header>
-
-            <p className="mt-2">{item.content}</p>
+            <p className="p-5">{item.content}</p>
           </li>
         )
       })}

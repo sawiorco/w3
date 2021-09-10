@@ -1,7 +1,8 @@
 ---
 title: "Disco Elysium"
 slug: "/review/disco-elysium"
-coverImage: "./cover.png"
+posterImage: "./poster.png"
+heroImage: "./hero.png"
 youtubeTrailerId: "vKVgnDk5ZUc"
 createdAt: "2021-09-09"
 updatedAt: "2021-09-09"
@@ -45,20 +46,18 @@ isPublished: false
   />
 </Section>
 
-<Section className="mt-10" title="Replayability">
-  <Checklist
-    className="mt-5"
-    items={[
-      {
-        isChecked: true,
-        title: "Different choices",
-        body: "The choices you make affect the world.",
-      },
-      {
-        isChecked: true,
-        title: "Achievements",
-        body: "A good bunch of achievements to collect, and some of them are challenging.",
-      },
-    ]}
-  />
-</Section>
+<Replayability
+  value={1}
+  checklist={[
+    {
+      isChecked: true,
+      title: "Different choices",
+      body: "The choices you make affect the world.",
+    },
+    {
+      isChecked: true,
+      title: "Achievements",
+      body: "A good bunch of achievements to collect, and some of them are challenging.",
+    },
+  ]}
+/>

@@ -7,6 +7,7 @@ import ReactPlayer from "react-player/lazy"
 import Seo from "../components/seo"
 import Layout from "../components/layout"
 import { MdxFrontmatter, Mdx, ImageSharp } from "../../graphql-types"
+import { Parallax, Background } from "react-parallax"
 
 export default function ReviewTemplate({
   data, // this prop will be injected by the GraphQL query below.
@@ -20,7 +21,23 @@ export default function ReviewTemplate({
 
       <Layout>
         <header className="relative">
-          <div className="w-screen h-96 md:h-128">
+          <div className="w-full bg-gray-900 transform-gpu translate-1/2 h-96">
+            <Parallax strength={500} className="w-full h-full">
+              <Background className="w-full h-full">
+                <GatsbyImage
+                  className="object-cover object-top w-full h-full opacity-50"
+                  alt="Hello"
+                  image={getImage(
+                    frontmatter.heroImage.childImageSharp.gatsbyImageData
+                  )}
+                />
+              </Background>
+            </Parallax>
+
+            <div className="absolute bottom-0 w-full h-2/3 md:bg-gradient-to-b from-transparent via-transparent md:to-gray-800"></div>
+          </div>
+
+          {/* <div className="w-screen h-96 md:h-128">
             <div className="video-hero">
               <ReactPlayer
                 width="100%"
@@ -53,36 +70,40 @@ export default function ReviewTemplate({
                 }}
               />
             </div>
-          </div>
+          </div> */}
 
           <div className="container mx-auto">
-            <div className="-mt-48 md:flex md:items-end">
+            <div className="-mt-48 md:flex">
               <GatsbyImage
                 alt="Hello"
                 image={getImage(
-                  frontmatter.coverImage.childImageSharp.gatsbyImageData
+                  frontmatter.posterImage.childImageSharp.gatsbyImageData
                 )}
               />
 
-              <div className="relative z-10 mt-10 text-white md:p-10 md:mt-0">
-                <p className="text-xl text-green-400">Should I play</p>
+              <div className="relative grid gap-10 mt-10 md:mt-0 md:p-10 md:items-start">
+                <div className="text-white">
+                  <p className="text-xl text-green-400">Should I play</p>
 
-                <div className="relative flex items-center">
-                  <div className="absolute flex-grow w-1 h-full bg-green-400 rounded-full" />
-                  <h1 className="ml-2 text-4xl font-thin">
-                    {frontmatter.title}?
-                  </h1>
+                  <div className="relative flex items-center">
+                    <div className="absolute flex-grow w-1 h-full bg-green-400 rounded-full" />
+                    <h1 className="ml-2 text-5xl font-thin lg:text-6xl">
+                      {frontmatter.title}?
+                    </h1>
+                  </div>
+                </div>
+
+                <div className="relative">
+                  <small className="text-gray-400">
+                    Last update at {frontmatter.updatedAt}
+                  </small>
                 </div>
               </div>
             </div>
           </div>
         </header>
 
-        <div className="container mx-auto mt-10 tracking-tighter">
-          <small className="text-gray-400">
-            Last update at {frontmatter.updatedAt}
-          </small>
-
+        <div className="container mx-auto mt-10">
           <div className="mt-10 mb-10">
             <MDXRenderer>{body}</MDXRenderer>
           </div>
@@ -103,7 +124,12 @@ export const pageQuery = graphql`
         updatedAt(formatString: "MMMM DD, YYYY")
         isPublished
         youtubeTrailerId
-        coverImage {
+        posterImage {
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
+        heroImage {
           childImageSharp {
             gatsbyImageData
           }
@@ -126,7 +152,8 @@ interface IReviewTemplate {
         | "isPublished"
         | "youtubeTrailerId"
       > & {
-        coverImage: { childImageSharp: Pick<ImageSharp, "gatsbyImageData"> }
+        posterImage: { childImageSharp: Pick<ImageSharp, "gatsbyImageData"> }
+        heroImage: { childImageSharp: Pick<ImageSharp, "gatsbyImageData"> }
       }
     }
   }

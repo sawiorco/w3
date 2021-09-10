@@ -4,13 +4,8 @@ import { useStaticQuery, graphql } from "gatsby"
 import { MDXProvider } from "@mdx-js/react"
 
 import { Header } from "./header"
-import { Proscons } from "./proscons"
-import { Features } from "./features"
-import { Section } from "./section"
-import { List } from "./list"
-import { Checklist } from "./checklist/"
 
-const shortcodes = { Proscons, Features, Section, List, Checklist }
+import * as shortcodes from "."
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`

@@ -59,11 +59,10 @@ const checkColors = {
 
 interface IChecklist
   extends Omit<React.HtmlHTMLAttributes<HTMLUListElement>, "title"> {
-  items: IItem[]
+  items: IChecklistItem[]
 }
 
-interface IItem {
-  id: string
+export interface IChecklistItem {
   isChecked: boolean
   title: React.ReactNode
   body: React.ReactNode

@@ -18,7 +18,7 @@ export default function IndexPage() {
       <div className="container mx-auto my-10">
         <h1>What to play</h1>
 
-        <div className="grid grid-cols-6 gap-5 mt-5">
+        <div className="grid gap-5 mt-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
           {data.allMdx.edges.map(e => {
             return (
               <Link
@@ -37,7 +37,7 @@ export default function IndexPage() {
                   />
                 </div>
 
-                <h3 className="transition-all group-hover:text-green-400">
+                <h3 className="mt-2 transition-all group-hover:text-green-400">
                   {e.node.frontmatter.title}
                 </h3>
               </Link>

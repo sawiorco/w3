@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply bg-gray-900;
+  }
+
+  div,
+  span,
+  ul,
+  li,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    @apply font-light tracking-tighter;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-white;
+  }
+
+  p,
+  div,
+  span,
+  li {
+    @apply text-xl text-gray-300;
+  }
+
+  h1 {
+    @apply text-4xl;
+  }
+
+  h2 {
+    @apply text-3xl;
+  }
+}
+
+@layer utilities {
+  .video-hero {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+  }
+
+  .video-hero iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+  }
+
+  @media (max-aspect-ratio: 4/3) {
+    .video-hero iframe {
+      width: 66.66vh;
+    }
+  }
+
+  @media (min-aspect-ratio: 16/9) {
+    .video-hero iframe {
+      height: 56.25vw;
+    }
+  }
+
+  @media (max-aspect-ratio: 16/9) {
+    .video-hero iframe {
+      width: 177.78vh;
+    }
+  }
+}

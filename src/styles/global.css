@@ -34,7 +34,7 @@
   div,
   span,
   li {
-    @apply text-xl text-gray-300;
+    @apply text-base text-gray-300;
   }
 
   h1 {
@@ -43,6 +43,10 @@
 
   h2 {
     @apply text-3xl;
+  }
+
+  h4 {
+    @apply text-xl;
   }
 }
 

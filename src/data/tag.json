@@ -42,6 +42,12 @@
   },
 
   {
+    "slug": "just-one-more",
+    "title": "\"Just one more\"",
+    "markers": ["mood"]
+  },
+
+  {
     "slug": "mystery",
     "title": "Mystery",
     "markers": ["theme"]

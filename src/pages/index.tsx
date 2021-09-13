@@ -12,7 +12,7 @@ import {
   TagJson,
 } from "../../graphql-types"
 import { IndexSidebar } from "../components/indexSidebar"
-import { groupTags, IGroupedTags } from "../features/tags/createTagGroups"
+import { groupTags, IGroupedTags } from "../features/tag/createTagGroups"
 
 export default function IndexPage() {
   const { allMdx, allTagJson } =

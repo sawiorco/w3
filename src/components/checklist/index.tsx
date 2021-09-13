@@ -17,9 +17,6 @@ export function Checklist({ className, items, ...rest }: IChecklist) {
 
         const hasBody = Boolean(body)
 
-        // body: "You have different choices at every new game, changing the entire play through",
-        // body: "There's a good bunch of achievements to collect, and some of them are hard",
-
         return (
           <li
             key={index}
@@ -28,9 +25,9 @@ export function Checklist({ className, items, ...rest }: IChecklist) {
             }`}
           >
             <span
-              className={`px-1 border border-solid border-${
+              className={`px-1 border border-solid ${
                 checkColors[isChecked.toString()]
-              }-400 text-${checkColors[isChecked.toString()]}-400 rounded-full`}
+              } rounded-full`}
             >
               {isChecked && (
                 <FontAwesomeIcon className="relative top-0.5" icon={faCheck} />
@@ -43,6 +40,7 @@ export function Checklist({ className, items, ...rest }: IChecklist) {
 
             <div className="ml-2">
               <h4>{title}</h4>
+
               {hasBody && <p>{body}</p>}
             </div>
           </li>
@@ -53,8 +51,8 @@ export function Checklist({ className, items, ...rest }: IChecklist) {
 }
 
 const checkColors = {
-  true: "green",
-  false: "red",
+  true: "border-green-400 text-green-400",
+  false: "border-red-400 text-red-400",
 }
 
 interface IChecklist

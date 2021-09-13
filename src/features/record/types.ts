@@ -1,15 +1,16 @@
 import { MdxFrontmatter, TagJson, ImageSharp } from "../../../graphql-types"
 
-export type TReviewDetails = Pick<
+export type TRecord = Pick<
   MdxFrontmatter,
   | "title"
   | "slug"
-  | "createdAt"
-  | "updatedAt"
   | "isPublished"
   | "youtubeTrailerId"
+  | "steamAppId"
+  | "createdAt"
+  | "updatedAt"
 > & {
-  tags: Pick<TagJson, "title">[]
+  tags: Pick<TagJson, "slug" | "title">[]
   posterImage: { childImageSharp: Pick<ImageSharp, "gatsbyImageData"> }
   heroImage: { childImageSharp: Pick<ImageSharp, "gatsbyImageData"> }
 }

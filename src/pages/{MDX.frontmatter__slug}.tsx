@@ -8,7 +8,8 @@ import Seo from "../components/seo"
 import Layout from "../components/layout"
 import { Mdx } from "../../graphql-types"
 import { ReviewSidebar } from "../components/reviewSidebar"
-import { TReviewDetails } from "../features/review/types"
+import { TRecord } from "../features/record/types"
+import { Similars } from "../components"
 
 export default function ReviewTemplate({
   data, // this prop will be injected by the GraphQL query below.
@@ -73,6 +74,8 @@ export default function ReviewTemplate({
           <div className="mt-10 mb-10 md:grid md:grid-cols-6 md:gap-5">
             <div className="col-span-4">
               <MDXRenderer>{body}</MDXRenderer>
+
+              <Similars sourceRecord={frontmatter} />
             </div>
 
             <div className="mt-10 md:mt-0">
@@ -92,10 +95,11 @@ export const pageQuery = graphql`
       frontmatter {
         slug
         title
-        createdAt(formatString: "MMMM DD, YYYY")
-        updatedAt(formatString: "MMMM DD, YYYY")
         isPublished
         youtubeTrailerId
+        steamAppId
+        createdAt(formatString: "MMMM DD, YYYY")
+        updatedAt(formatString: "MMMM DD, YYYY")
         tags {
           slug
           title
@@ -120,7 +124,7 @@ interface IReviewTemplate {
   data: {
     mdx: {
       body: keyof Pick<Mdx, "body">
-      frontmatter: TReviewDetails
+      frontmatter: TRecord
     }
   }
 }

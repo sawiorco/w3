@@ -23,9 +23,9 @@ export function Proscons({ pros, cons, className, ...rest }: IProscons) {
             return (
               <li
                 key={pro.toString()}
-                className="flex items-center mt-2 first:mt-0"
+                className="flex items-center mt-2 text-lg first:mt-0"
               >
-                <p>{pro}</p>
+                {pro}
               </li>
             )
           })}
@@ -43,9 +43,9 @@ export function Proscons({ pros, cons, className, ...rest }: IProscons) {
             return (
               <li
                 key={con.toString()}
-                className="flex items-center mt-2 first:mt-0"
+                className="flex items-center mt-2 text-lg first:mt-0"
               >
-                <p>{con}</p>
+                {con}
               </li>
             )
           })}

@@ -4,12 +4,13 @@ import {
   faSword,
   faFerrisWheel,
   faMasksTheater,
+  faUpRightFromSquare,
 } from "@fortawesome/pro-thin-svg-icons"
 
 import { TagJson } from "../../../graphql-types"
-import { TReviewDetails } from "../../features/review/types"
-import { groupTags } from "../../features/tags/createTagGroups"
-import { useTagsQs } from "../../features/tags/qs"
+import { TRecord } from "../../features/record/types"
+import { groupTags } from "../../features/tag/createTagGroups"
+import { useTagsQs } from "../../features/tag/qs"
 
 export function ReviewSidebar({ details }: IReviewSidebar) {
   const { applyTags } = useTagsQs()
@@ -21,6 +22,22 @@ export function ReviewSidebar({ details }: IReviewSidebar) {
       <div
         className={`p-5 border border-gray-800 rounded-lg duration-500 z-10 bg-gray-900 transition-all md:visible md:opacity-100`}
       >
+        {details.steamAppId && (
+          <section className="mb-5">
+            <a
+              className="flex items-center justify-between w-full p-1 px-2 text-white transition-all bg-black rounded-lg cursor-pointer transform-gpu hover:scale-105"
+              href={`https://store.steampowered.com/app/${details.steamAppId}/`}
+              target="_blank"
+            >
+              <span className="text-base">See it on Steam</span>
+              <FontAwesomeIcon
+                className="text-base"
+                icon={faUpRightFromSquare}
+              />
+            </a>
+          </section>
+        )}
+
         <section>
           <h5 className="text-base text-gray-300 uppercase">
             <FontAwesomeIcon icon={faMasksTheater} /> Moods
@@ -85,7 +102,7 @@ export function ReviewSidebar({ details }: IReviewSidebar) {
 }
 
 interface IReviewSidebar {
-  details: TReviewDetails
+  details: TRecord
 }
 
 function GameTag({ tag, onClick }: IFilter) {

@@ -334,6 +334,7 @@ export type MdxFrontmatter = {
   posterImage?: Maybe<File>;
   heroImage?: Maybe<File>;
   youtubeTrailerId?: Maybe<Scalars['String']>;
+  steamAppId?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['Date']>;
   updatedAt?: Maybe<Scalars['Date']>;
   isPublished?: Maybe<Scalars['Boolean']>;
@@ -1146,6 +1147,7 @@ export type MdxFrontmatterFilterInput = {
   posterImage?: Maybe<FileFilterInput>;
   heroImage?: Maybe<FileFilterInput>;
   youtubeTrailerId?: Maybe<StringQueryOperatorInput>;
+  steamAppId?: Maybe<StringQueryOperatorInput>;
   createdAt?: Maybe<DateQueryOperatorInput>;
   updatedAt?: Maybe<DateQueryOperatorInput>;
   isPublished?: Maybe<BooleanQueryOperatorInput>;
@@ -1504,6 +1506,7 @@ export type FileFieldsEnum =
   | 'childrenMdx___frontmatter___heroImage___id'
   | 'childrenMdx___frontmatter___heroImage___children'
   | 'childrenMdx___frontmatter___youtubeTrailerId'
+  | 'childrenMdx___frontmatter___steamAppId'
   | 'childrenMdx___frontmatter___createdAt'
   | 'childrenMdx___frontmatter___updatedAt'
   | 'childrenMdx___frontmatter___isPublished'
@@ -1648,6 +1651,7 @@ export type FileFieldsEnum =
   | 'childMdx___frontmatter___heroImage___id'
   | 'childMdx___frontmatter___heroImage___children'
   | 'childMdx___frontmatter___youtubeTrailerId'
+  | 'childMdx___frontmatter___steamAppId'
   | 'childMdx___frontmatter___createdAt'
   | 'childMdx___frontmatter___updatedAt'
   | 'childMdx___frontmatter___isPublished'
@@ -3206,6 +3210,7 @@ export type MdxFieldsEnum =
   | 'frontmatter___heroImage___internal___owner'
   | 'frontmatter___heroImage___internal___type'
   | 'frontmatter___youtubeTrailerId'
+  | 'frontmatter___steamAppId'
   | 'frontmatter___createdAt'
   | 'frontmatter___updatedAt'
   | 'frontmatter___isPublished'
@@ -4015,6 +4020,14 @@ export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
 
 export type Unnamed_1_Query = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>> }> };
 
+export type SimilarsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type SimilarsQuery = { allMdx: { edges: Array<{ node: { frontmatter?: Maybe<(
+          Pick<MdxFrontmatter, 'slug' | 'title'>
+          & { tags?: Maybe<Array<Maybe<Pick<TagJson, 'slug' | 'title'>>>>, posterImage?: Maybe<{ childImageSharp?: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }> }
+        )> } }> } };
+
 export type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -4034,7 +4047,7 @@ export type ReviewTemplateQueryVariables = Exact<{
 export type ReviewTemplateQuery = { mdx?: Maybe<(
     Pick<Mdx, 'body'>
     & { frontmatter?: Maybe<(
-      Pick<MdxFrontmatter, 'slug' | 'title' | 'createdAt' | 'updatedAt' | 'isPublished' | 'youtubeTrailerId'>
-      & { tags?: Maybe<Array<Maybe<Pick<TagJson, 'title'>>>>, posterImage?: Maybe<{ childImageSharp?: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }>, heroImage?: Maybe<{ childImageSharp?: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }> }
+      Pick<MdxFrontmatter, 'slug' | 'title' | 'isPublished' | 'youtubeTrailerId' | 'steamAppId' | 'createdAt' | 'updatedAt'>
+      & { tags?: Maybe<Array<Maybe<Pick<TagJson, 'slug' | 'title' | 'markers'>>>>, posterImage?: Maybe<{ childImageSharp?: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }>, heroImage?: Maybe<{ childImageSharp?: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }> }
     )> }
   )> };

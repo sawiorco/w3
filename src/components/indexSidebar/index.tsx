@@ -10,8 +10,8 @@ import {
 } from "@fortawesome/pro-thin-svg-icons"
 
 import { TagJson } from "../../../graphql-types"
-import { useTagsQs } from "../../features/tags/qs"
-import { IGroupedTags } from "../../features/tags/createTagGroups"
+import { useTagsQs } from "../../features/tag/qs"
+import { IGroupedTags } from "../../features/tag/createTagGroups"
 
 export function IndexSidebar({
   availableFilters,

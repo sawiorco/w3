@@ -1,5 +1,3 @@
-import { useAtom, atom } from "jotai"
-import { useEffect } from "react"
 import { useQueryParam, StringParam } from "use-query-params"
 import { navigate } from "gatsby-link"
 

@@ -12,24 +12,14 @@ import { groupTags } from "../../features/tags/createTagGroups"
 import { useTagsQs } from "../../features/tags/qs"
 
 export function ReviewSidebar({ details }: IReviewSidebar) {
-  const [isVisible, setIsVisible] = React.useState(false)
-
   const { applyTags } = useTagsQs()
 
   const tagGroups = groupTags(details.tags)
 
-  function toggleVisibility() {
-    setIsVisible(prev => !prev)
-  }
-
   return (
     <aside className="relative">
       <div
-        className={`p-5 border border-gray-800 rounded-lg duration-500 z-10 bg-gray-900 transition-all ${
-          isVisible
-            ? "relative visible opacity-100"
-            : "w-full absolute invisible opacity-0"
-        } md:visible md:opacity-100`}
+        className={`p-5 border border-gray-800 rounded-lg duration-500 z-10 bg-gray-900 transition-all md:visible md:opacity-100`}
       >
         <section>
           <h5 className="text-base text-gray-300 uppercase">
@@ -79,13 +69,11 @@ export function ReviewSidebar({ details }: IReviewSidebar) {
           <ul className="flex flex-col gap-1 mt-2">
             {tagGroups.themes.map(t => {
               return (
-                <GameTag
-                  key={t.slug}
-                  tag={t}
-                  onClick={() => {
-                    applyTags([t.slug])
-                  }}
-                />
+                <li
+                  className={`p-1 px-2 text-base border border-solid border-gray-800  text-gray-300 rounded-lg`}
+                >
+                  {t.title}
+                </li>
               )
             })}
           </ul>

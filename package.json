@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "@sawior/w3",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "The Sawior.com's website.",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Guilherme Oderdenge <guilhermeoderdenge@gmail.com>",
   "dependencies": {
     "@fontsource/karla": "^4.5.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.33-beta1",
@@ -52,6 +52,7 @@
   "keywords": [
     "gatsby"
   ],
+  "engines" : { "node" : ">=14" },
   "license": "0BSD",
   "scripts": {
     "build": "gatsby build",

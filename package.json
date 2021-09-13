@@ -22,7 +22,9 @@
     "gatsby-plugin-react-helmet": "^4.13.0",
     "gatsby-plugin-sharp": "^3.13.0",
     "gatsby-source-filesystem": "^3.13.0",
+    "gatsby-transformer-json": "^3.13.0",
     "gatsby-transformer-sharp": "^3.13.0",
+    "pluralize": "^8.0.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -33,12 +35,16 @@
   },
   "devDependencies": {
     "@tailwindcss/aspect-ratio": "^0.2.1",
+    "@types/node": "^16.9.1",
+    "@types/pluralize": "^0.0.29",
     "@types/react-helmet": "^6.1.2",
     "autoprefixer": "^10.3.4",
     "gatsby-plugin-postcss": "^4.13.0",
     "postcss": "^8.3.6",
     "prettier": "2.3.2",
-    "tailwindcss": "^2.2.14"
+    "source-map-support": "^0.5.20",
+    "tailwindcss": "^2.2.14",
+    "typescript": "^4.4.3"
   },
   "keywords": [
     "gatsby"

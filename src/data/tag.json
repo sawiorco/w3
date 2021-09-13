@@ -1,0 +1,61 @@
+[
+  {
+    "slug": "rpg",
+    "title": "Role-playing (RPG)",
+    "markers": ["genre"]
+  },
+
+  {
+    "slug": "strategy",
+    "title": "Strategy",
+    "markers": ["genre"]
+  },
+
+  {
+    "slug": "shooter",
+    "title": "Shooter",
+    "markers": ["genre"]
+  },
+
+  {
+    "slug": "card-game",
+    "title": "Card Game",
+    "markers": ["genre"]
+  },
+
+  {
+    "slug": "rainy-sunday",
+    "title": "Rainy Sunday",
+    "markers": ["mood"]
+  },
+
+  {
+    "slug": "relaxing",
+    "title": "Relaxing",
+    "markers": ["mood"]
+  },
+
+  {
+    "slug": "fast-paced",
+    "title": "Fast-paced",
+    "markers": ["mood"]
+  },
+
+  {
+    "slug": "mystery",
+    "title": "Mystery",
+    "markers": ["theme"]
+  },
+
+  {
+    "slug": "sci-fi",
+    "title": "Sci-Fi",
+    "markers": ["theme"]
+  },
+
+  {
+    "slug": "fantasy",
+    "title": "Fantasy",
+    "markers": ["theme"]
+  }
+]

@@ -23,6 +23,15 @@ module.exports = {
         path: `${__dirname}/src/components`,
       },
     },
+    `gatsby-plugin-mdx`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `posts`,
+        path: `${__dirname}/src/posts`,
+      },
+    },
+    `gatsby-transformer-json`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -30,7 +39,6 @@ module.exports = {
         path: `${__dirname}/src/data`,
       },
     },
-    `gatsby-plugin-mdx`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {

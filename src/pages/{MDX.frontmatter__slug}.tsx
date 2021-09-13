@@ -2,12 +2,11 @@ import React from "react"
 import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import ReactPlayer from "react-player/lazy"
+import { Parallax, Background } from "react-parallax"
 
 import Seo from "../components/seo"
 import Layout from "../components/layout"
-import { MdxFrontmatter, Mdx, ImageSharp } from "../../graphql-types"
-import { Parallax, Background } from "react-parallax"
+import { MdxFrontmatter, Mdx, ImageSharp, TagJson } from "../../graphql-types"
 
 export default function ReviewTemplate({
   data, // this prop will be injected by the GraphQL query below.
@@ -25,8 +24,8 @@ export default function ReviewTemplate({
             <Parallax strength={500} className="w-full h-full">
               <Background className="w-full h-full">
                 <GatsbyImage
+                  alt={`Cover art for the game ${frontmatter.title}`}
                   className="object-cover object-top w-full h-full opacity-50"
-                  alt="Hello"
                   image={getImage(
                     frontmatter.heroImage.childImageSharp.gatsbyImageData
                   )}
@@ -34,48 +33,13 @@ export default function ReviewTemplate({
               </Background>
             </Parallax>
 
-            <div className="absolute bottom-0 w-full h-2/3 md:bg-gradient-to-b from-transparent via-transparent md:to-gray-800"></div>
+            <div className="absolute bottom-0 w-full h-2/3 md:bg-gradient-to-b from-transparent via-transparent md:to-gray-800" />
           </div>
-
-          {/* <div className="w-screen h-96 md:h-128">
-            <div className="video-hero">
-              <ReactPlayer
-                width="100%"
-                height="100%"
-                url={`https://www.youtube.com/watch?v=${frontmatter.youtubeTrailerId}`}
-                config={{
-                  youtube: {
-                    playerVars: {
-                      playlist: frontmatter.youtubeTrailerId,
-                      loop: 1,
-                      autoplay: 1,
-                      rel: 0,
-                      mute: 1,
-                      modestbranding: 1,
-                      showinfo: 0,
-                      color: "white",
-                      controls: 0,
-                    },
-                  },
-                  vimeo: {
-                    playerOptions: {
-                      autoplay: 1,
-                      muted: 1,
-                      color: "ffffff",
-                      byline: 1,
-                      portrait: 0,
-                      controls: true,
-                    },
-                  },
-                }}
-              />
-            </div>
-          </div> */}
 
           <div className="container mx-auto">
             <div className="-mt-48 md:flex">
               <GatsbyImage
-                alt="Hello"
+                alt={`Poster for the game ${frontmatter.title}`}
                 image={getImage(
                   frontmatter.posterImage.childImageSharp.gatsbyImageData
                 )}
@@ -94,6 +58,8 @@ export default function ReviewTemplate({
                 </div>
 
                 <div className="relative">
+                  <div>{frontmatter.tags.map(t => t.title)}</div>
+
                   <small className="text-gray-400">
                     Last update at {frontmatter.updatedAt}
                   </small>
@@ -124,6 +90,9 @@ export const pageQuery = graphql`
         updatedAt(formatString: "MMMM DD, YYYY")
         isPublished
         youtubeTrailerId
+        tags {
+          title
+        }
         posterImage {
           childImageSharp {
             gatsbyImageData
@@ -152,6 +121,7 @@ interface IReviewTemplate {
         | "isPublished"
         | "youtubeTrailerId"
       > & {
+        tags: Pick<TagJson, "title">[]
         posterImage: { childImageSharp: Pick<ImageSharp, "gatsbyImageData"> }
         heroImage: { childImageSharp: Pick<ImageSharp, "gatsbyImageData"> }
       }

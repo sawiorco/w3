@@ -70,6 +70,7 @@ export function ReviewSidebar({ details }: IReviewSidebar) {
             {tagGroups.themes.map(t => {
               return (
                 <li
+                  key={t.slug}
                   className={`p-1 px-2 text-base border border-solid border-gray-800  text-gray-300 rounded-lg`}
                 >
                   {t.title}

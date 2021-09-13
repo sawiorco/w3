@@ -70,12 +70,12 @@ export default function ReviewTemplate({
         </header>
 
         <div className="container mx-auto mt-10">
-          <div className="grid grid-cols-6 gap-5 mt-10 mb-10">
+          <div className="mt-10 mb-10 md:grid md:grid-cols-6 md:gap-5">
             <div className="col-span-4">
               <MDXRenderer>{body}</MDXRenderer>
             </div>
 
-            <div>
+            <div className="mt-10 md:mt-0">
               <ReviewSidebar details={frontmatter} />
             </div>
           </div>

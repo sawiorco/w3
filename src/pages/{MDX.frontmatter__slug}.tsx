@@ -6,7 +6,9 @@ import { Parallax, Background } from "react-parallax"
 
 import Seo from "../components/seo"
 import Layout from "../components/layout"
-import { MdxFrontmatter, Mdx, ImageSharp, TagJson } from "../../graphql-types"
+import { Mdx } from "../../graphql-types"
+import { ReviewSidebar } from "../components/reviewSidebar"
+import { TReviewDetails } from "../features/review/types"
 
 export default function ReviewTemplate({
   data, // this prop will be injected by the GraphQL query below.
@@ -58,8 +60,6 @@ export default function ReviewTemplate({
                 </div>
 
                 <div className="relative">
-                  <div>{frontmatter.tags.map(t => t.title)}</div>
-
                   <small className="text-gray-400">
                     Last update at {frontmatter.updatedAt}
                   </small>
@@ -70,8 +70,14 @@ export default function ReviewTemplate({
         </header>
 
         <div className="container mx-auto mt-10">
-          <div className="mt-10 mb-10">
-            <MDXRenderer>{body}</MDXRenderer>
+          <div className="grid grid-cols-6 gap-5 mt-10 mb-10">
+            <div className="col-span-4">
+              <MDXRenderer>{body}</MDXRenderer>
+            </div>
+
+            <div>
+              <ReviewSidebar details={frontmatter} />
+            </div>
           </div>
         </div>
       </Layout>
@@ -91,7 +97,9 @@ export const pageQuery = graphql`
         isPublished
         youtubeTrailerId
         tags {
+          slug
           title
+          markers
         }
         posterImage {
           childImageSharp {
@@ -112,19 +120,7 @@ interface IReviewTemplate {
   data: {
     mdx: {
       body: keyof Pick<Mdx, "body">
-      frontmatter: Pick<
-        MdxFrontmatter,
-        | "title"
-        | "slug"
-        | "createdAt"
-        | "updatedAt"
-        | "isPublished"
-        | "youtubeTrailerId"
-      > & {
-        tags: Pick<TagJson, "title">[]
-        posterImage: { childImageSharp: Pick<ImageSharp, "gatsbyImageData"> }
-        heroImage: { childImageSharp: Pick<ImageSharp, "gatsbyImageData"> }
-      }
+      frontmatter: TReviewDetails
     }
   }
 }

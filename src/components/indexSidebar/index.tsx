@@ -10,15 +10,25 @@ import {
 } from "@fortawesome/pro-thin-svg-icons"
 
 import { TagJson } from "../../../graphql-types"
+import { useTagsQs } from "../../features/tags/qs"
+import { IGroupedTags } from "../../features/tags/createTagGroups"
 
 export function IndexSidebar({
   availableFilters,
   onActiveFiltersChange,
 }: IIndexSidebar) {
   const [isVisible, setIsVisible] = React.useState(false)
-  const [activeFilters, setActiveFilters] = React.useState<string[]>([])
+  const { tagsArray, overrideTags } = useTagsQs()
+  const [activeFilters, setActiveFilters] = React.useState<string[]>(tagsArray)
 
   React.useEffect(() => {
+    if (tagsArray.length > 0) {
+      onActiveFiltersChange(tagsArray)
+    }
+  }, [])
+
+  React.useEffect(() => {
+    overrideTags(activeFilters)
     onActiveFiltersChange(activeFilters)
   }, [activeFilters])
 
@@ -89,7 +99,7 @@ export function IndexSidebar({
           </h5>
 
           <ul className="flex flex-col gap-1 mt-2">
-            {availableFilters.mood.map(t => {
+            {availableFilters.moods.map(t => {
               return (
                 <Filter
                   key={t.slug}
@@ -108,7 +118,7 @@ export function IndexSidebar({
           </h5>
 
           <ul className="flex flex-col gap-1 mt-2">
-            {availableFilters.genre.map(t => {
+            {availableFilters.genres.map(t => {
               return (
                 <Filter
                   key={t.slug}
@@ -126,7 +136,7 @@ export function IndexSidebar({
 }
 
 interface IIndexSidebar {
-  availableFilters: { mood: TTag[]; genre: TTag[] }
+  availableFilters: IGroupedTags
   onActiveFiltersChange: (newActiveFilters: string[]) => void
 }
 

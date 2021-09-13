@@ -48,6 +48,12 @@
   },
 
   {
+    "slug": "detective",
+    "title": "Detective",
+    "markers": ["theme"]
+  },
+
+  {
     "slug": "sci-fi",
     "title": "Sci-Fi",
     "markers": ["theme"]

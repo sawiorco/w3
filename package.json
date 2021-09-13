@@ -21,9 +21,11 @@
     "gatsby-plugin-offline": "^4.13.0",
     "gatsby-plugin-react-helmet": "^4.13.0",
     "gatsby-plugin-sharp": "^3.13.0",
+    "gatsby-plugin-use-query-params": "^1.0.1",
     "gatsby-source-filesystem": "^3.13.0",
     "gatsby-transformer-json": "^3.13.0",
     "gatsby-transformer-sharp": "^3.13.0",
+    "jotai": "^1.3.4",
     "pluralize": "^8.0.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
@@ -31,7 +33,8 @@
     "react-helmet": "^6.1.0",
     "react-parallax": "^3.3.0",
     "react-player": "^2.9.0",
-    "react-youtube": "^7.13.1"
+    "react-youtube": "^7.13.1",
+    "use-query-params": "^1.2.3"
   },
   "devDependencies": {
     "@tailwindcss/aspect-ratio": "^0.2.1",

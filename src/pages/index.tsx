@@ -1,15 +1,7 @@
 import * as React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
-import { uniq } from "lodash"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import {
-  faCheck,
-  faSword,
-  faMasksTheater,
-  faArrowDown,
-} from "@fortawesome/pro-thin-svg-icons"
-import pluralize from "pluralize"
+import { useQueryParam, NumberParam, StringParam } from "use-query-params"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -20,19 +12,14 @@ import {
   TagJson,
 } from "../../graphql-types"
 import { IndexSidebar } from "../components/indexSidebar"
+import { groupTags, IGroupedTags } from "../features/tags/createTagGroups"
 
 export default function IndexPage() {
   const { allMdx, allTagJson } =
     useStaticQuery<IQueryIndexPageData>(QUERY_INDEX_PAGE)
 
   const allReviews = allMdx.edges.map(e => e.node)
-
   const [reviews, setReviews] = React.useState(allReviews)
-  const [activeFilters, setActiveFilters] = React.useState<string[]>([])
-
-  React.useEffect(() => {
-    filterReviews(activeFilters)
-  }, [activeFilters])
 
   function filterReviews(filterTags: string[]) {
     const filteredReviews = allReviews.reduce((prev, curr): TReview[] => {
@@ -60,34 +47,7 @@ export default function IndexPage() {
     )
   }
 
-  const tagGroups: TTagGroups = allTagJson.edges
-    .map(e => e.node)
-    .reduce(
-      (prev: TTagGroups, curr: TTag): TTagGroups => {
-        if (!curr.markers) {
-          return prev
-        }
-
-        if (curr.markers.includes("genre")) {
-          return {
-            ...prev,
-
-            genre: [...prev.genre, curr],
-          }
-        }
-
-        if (curr.markers.includes("mood")) {
-          return {
-            ...prev,
-
-            mood: [...prev.mood, curr],
-          }
-        }
-
-        return prev
-      },
-      { genre: [], mood: [] }
-    )
+  const tagGroups: IGroupedTags = groupTags(allTagJson.edges.map(e => e.node))
 
   return (
     <Layout>

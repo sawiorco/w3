@@ -32,8 +32,8 @@ export function Proscons({ pros, cons, className, ...rest }: IProscons) {
         </ul>
       </div>
 
-      <div className="p-5 border border-gray-400 border-solid rounded-lg md:mt-0">
-        <h2 className="text-2xl text-gray-400">
+      <div className="p-5 border border-gray-800 border-solid rounded-lg md:mt-0">
+        <h2 className="text-2xl text-white">
           <FontAwesomeIcon className="mr-2" icon={faCircleExclamation} />
           Avoid it if...
         </h2>

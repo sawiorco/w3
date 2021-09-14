@@ -13,7 +13,12 @@ export function Traits({ record }: ITraits) {
   const traitsItems = traits.map((t): IListItem => {
     return {
       mood: "positive",
-      content: <p className="text-lg">{t.description}</p>,
+      content: (
+        <>
+          <p className="text-xl text-white">{t.title}</p>
+          <p className="text-lg">{t.description}</p>
+        </>
+      ),
     }
   })
 

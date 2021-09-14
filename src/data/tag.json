@@ -18,6 +18,30 @@
   },
 
   {
+    "slug": "city-builder",
+    "title": "City Builder",
+    "markers": ["genre"]
+  },
+
+  {
+    "slug": "management",
+    "title": "Management",
+    "markers": ["management"]
+  },
+
+  {
+    "slug": "simulator",
+    "title": "Simulator",
+    "markers": ["genre"]
+  },
+
+  {
+    "slug": "sandbox",
+    "title": "Sandbox",
+    "markers": ["genre"]
+  },
+
+  {
     "slug": "card-game",
     "title": "Card Game",
     "markers": ["genre"]
@@ -30,8 +54,26 @@
   },
 
   {
+    "slug": "deckbuilder",
+    "title": "Deckbuilder",
+    "markers": ["genre"]
+  },
+
+  {
+    "slug": "survival",
+    "title": "Survival",
+    "markers": ["genre"]
+  },
+
+  {
     "slug": "rainy-sunday",
     "title": "Rainy Sunday",
+    "markers": ["mood"]
+  },
+
+  {
+    "slug": "kill-everything",
+    "title": "Kill Everything",
     "markers": ["mood"]
   },
 
@@ -48,8 +90,20 @@
   },
 
   {
+    "slug": "role-playing",
+    "title": "Role-playing",
+    "markers": ["mood"]
+  },
+
+  {
     "slug": "just-one-more",
     "title": "\"Just one more\"",
+    "markers": ["mood"]
+  },
+
+  {
+    "slug": "up-to-a-challenge",
+    "title": "Up to a challenge",
     "markers": ["mood"]
   },
 
@@ -84,6 +138,24 @@
   },
 
   {
+    "slug": "business",
+    "title": "Business",
+    "markers": ["theme"]
+  },
+
+  {
+    "slug": "nuclear-winter",
+    "title": "Nuclear Winter",
+    "markers": ["theme"]
+  },
+
+  {
+    "slug": "grim",
+    "title": "Grim",
+    "markers": ["theme"]
+  },
+
+  {
     "slug": "well-polished",
     "title": "Well polished",
     "description": "The game is well polished and runs smoothly.",
@@ -94,6 +166,27 @@
     "slug": "unique-art-style",
     "title": "Unique Art Style",
     "description": "The art style is pretty unique.",
+    "markers": ["trait"]
+  },
+
+  {
+    "slug": "story-rich",
+    "title": "Story Rich",
+    "description": "Beyond the gameplay, this game has a story to tell.",
+    "markers": ["trait"]
+  },
+
+  {
+    "slug": "atmospheric",
+    "title": "Atmospheric",
+    "description": "Its atmosphere is pretty distinctive.",
+    "markers": ["trait"]
+  },
+
+  {
+    "slug": "immersive",
+    "title": "Immersive",
+    "description": "This game makes you forget what reality is.",
     "markers": ["trait"]
   }
 ]

@@ -7,10 +7,13 @@ import { TRecord } from "../../features/record/types"
 import { TagJson } from "../../../graphql-types"
 
 function getSharedTags(
-  tags1: Pick<TagJson, "slug">[],
-  tags2: Pick<TagJson, "slug">[]
+  tags1: Pick<TagJson, "slug" | "markers">[],
+  tags2: Pick<TagJson, "slug" | "markers">[]
 ) {
-  return intersectionBy(tags1, tags2, "slug")
+  const relevantTags1 = tags1.filter(t => !t.markers.includes("feature"))
+  const relevantTags2 = tags2.filter(t => !t.markers.includes("feature"))
+
+  return intersectionBy(relevantTags1, relevantTags2, "slug")
 }
 
 export function Similars({ sourceRecord }: ISimilars) {
@@ -67,6 +70,7 @@ const QUERY_SIMILARS = graphql`
             tags {
               slug
               title
+              markers
             }
             posterImage {
               childImageSharp {

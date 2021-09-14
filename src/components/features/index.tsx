@@ -1,34 +1,59 @@
-import React, { ReactNode } from "react"
+import React from "react"
+
+import { TRecord } from "../../features/record/types"
+import { Section, TagIcon } from ".."
+import { Meter } from "../meter"
 import classNames from "classnames"
 
-export function Features({ features, className, ...rest }: IProscons) {
-  return (
-    <div className={classNames(classNames, ``)} {...rest}>
-      <div>
-        <h2 className="text-2xl text-white">Features</h2>
+export function Features({
+  className,
+  record,
+  replayValue = 1,
+  ...rest
+}: IProscons) {
+  const featureTags = record.tags.filter(t => t.markers.includes("feature"))
 
-        <ul>
-          {features.map(f => {
-            return (
-              <li
-                key={f.toString()}
-                className="flex items-center ml-1 text-gray-300"
-              >
-                <span className="mr-2">&middot;</span>
-                <p className="text-lg">{f.content}</p>
-              </li>
-            )
-          })}
-        </ul>
+  return (
+    <Section className={classNames(className, "mt-10")} title="Features">
+      <div className="flex items-center mt-5">
+        <h3 className="mr-5">Replayability</h3>
+        <Meter value={replayValue} />
       </div>
-    </div>
+
+      <ul
+        className={`mt-5 grid md:auto-cols-max md:grid-cols-fit-240 md:auto-rows-min gap-5`}
+      >
+        {featureTags.map(ft => {
+          return (
+            <li
+              className={`flex flex-col p-5 bg-gray-800 rounded-lg`}
+              key={ft.slug}
+            >
+              <div className="flex items-start flex-1">
+                <TagIcon fixedWidth={true} className="text-2xl " tag={ft} />
+
+                <div className="ml-2">
+                  <h4>{ft.title}</h4>
+                  <p>{ft.description}</p>
+                </div>
+              </div>
+
+              <footer className="flex mt-5">
+                {ft.markers.includes("replay-factor") && (
+                  <div className="px-2 text-xs font-bold text-gray-900 uppercase bg-gray-500 rounded-lg">
+                    Replay factor
+                  </div>
+                )}
+              </footer>
+            </li>
+          )
+        })}
+      </ul>
+    </Section>
   )
 }
 
 interface IProscons extends React.HtmlHTMLAttributes<HTMLDivElement> {
-  features: IFeature[]
-}
-
-interface IFeature {
-  content: ReactNode
+  record: TRecord
+  replayValue: 0 | 1 | 2 | 3
 }

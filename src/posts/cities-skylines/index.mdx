@@ -5,6 +5,7 @@ posterImage: "./poster.png"
 heroImage: "./hero.webp"
 youtubeTrailerId: "vKVgnDk5ZUc"
 steamAppId: "255710"
+replayValue: 3
 createdAt: "2021-09-13"
 updatedAt: "2021-09-13"
 isPublished: false
@@ -17,6 +18,10 @@ tags:
   - "role-playing"
   - "sandbox"
   - "business"
+  - "quick-save"
+  - "slot-save"
+  - "mods"
+  - "achievements"
 ---
 
 <Proscons
@@ -35,11 +40,7 @@ tags:
     items={[
       {
         mood: "kudos",
-        content: "The best city builder out there.",
-      },
-      {
-        mood: "positive",
-        content: "Designing roads is very fun.",
+        content: "You have total freedom to design your city.",
       },
       {
         mood: "negative",
@@ -48,19 +49,3 @@ tags:
     ]}
   />
 </Section>
-
-<Replayability
-  value={3}
-  checklist={[
-    {
-      isChecked: true,
-      title: "Build the city of your dreams",
-      body: "The base game is immense, and no city looks the same: you have total freedom from the design of your city to its policies.",
-    },
-    {
-      isChecked: true,
-      title: "Mods",
-      body: "The modding community is massive, and the ease of use of the Steam Workshop makes downloading mods a breeze.",
-    },
-  ]}
-/>

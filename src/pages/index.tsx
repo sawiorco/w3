@@ -13,17 +13,19 @@ import {
 } from "../../graphql-types"
 import { IndexSidebar } from "../components/indexSidebar"
 import { groupTags, IGroupedTags } from "../features/tag/createTagGroups"
+import { Poster } from "../components"
+import { TRecord } from "../features/record/types"
 
 export default function IndexPage() {
   const { allMdx, allTagJson } =
     useStaticQuery<IQueryIndexPageData>(QUERY_INDEX_PAGE)
 
-  const allReviews = allMdx.edges.map(e => e.node)
-  const [reviews, setReviews] = React.useState(allReviews)
+  const allRecords = allMdx.edges.map(e => e.node.frontmatter)
+  const [records, setRecords] = React.useState<TRecord[]>(allRecords)
 
-  function filterReviews(filterTags: string[]) {
-    const filteredReviews = allReviews.reduce((prev, curr): TReview[] => {
-      const reviewTags = curr.frontmatter.tags
+  function filterRecords(filterTags: string[]) {
+    const filteredReviews = allRecords.reduce((prev, curr): TRecord[] => {
+      const reviewTags = curr.tags
 
       if (filterTags.every(ft => reviewTags.find(x => x.slug === ft))) {
         return [...prev, curr]
@@ -32,7 +34,7 @@ export default function IndexPage() {
       return prev
     }, [])
 
-    setReviews(
+    setRecords(
       filteredReviews.sort((a, b) => {
         if (a.title < b.title) {
           return -1
@@ -58,41 +60,20 @@ export default function IndexPage() {
           <div className="mb-5 md:mb-0">
             <IndexSidebar
               availableFilters={{ ...tagGroups }}
-              onActiveFiltersChange={filterReviews}
+              onActiveFiltersChange={filterRecords}
             />
           </div>
 
-          {reviews.length === 0 && (
+          {records.length === 0 && (
             <div className="md:col-span-4">
               <p>There are no results for the filters you were looking for.</p>
             </div>
           )}
 
-          {reviews.length > 0 && (
+          {records.length > 0 && (
             <div className="grid grid-cols-2 gap-5 md:col-span-4 md:grid-cols-4 lg:grid-cols-6">
-              {reviews.map(post => {
-                return (
-                  <Link
-                    className="group"
-                    key={post.frontmatter.slug}
-                    to={`${post.frontmatter.slug}`}
-                  >
-                    <div className="overflow-hidden">
-                      <GatsbyImage
-                        className="object-cover object-top w-full h-full transition-all transform-gpu group-hover:scale-105"
-                        alt="Hello"
-                        image={getImage(
-                          post.frontmatter.posterImage.childImageSharp
-                            .gatsbyImageData
-                        )}
-                      />
-                    </div>
-
-                    <h3 className="mt-2 transition-all group-hover:text-green-400">
-                      {post.frontmatter.title}
-                    </h3>
-                  </Link>
-                )
+              {records.map(record => {
+                return <Poster record={record} />
               })}
             </div>
           )}
@@ -139,7 +120,9 @@ const QUERY_INDEX_PAGE = graphql`
 interface IQueryIndexPageData {
   allMdx: Pick<MdxConnection, "totalCount"> & {
     edges: {
-      node: TReview
+      node: {
+        frontmatter: TRecord
+      }
     }[]
   }
 
@@ -150,12 +133,4 @@ interface IQueryIndexPageData {
   }
 }
 
-type TReview = {
-  frontmatter: Pick<MdxFrontmatter, "title" | "slug" | "tags"> & {
-    posterImage: { childImageSharp: Pick<ImageSharp, "gatsbyImageData"> }
-  }
-}
-
 type TTag = Pick<TagJson, "slug" | "title" | "markers">
-
-type TTagGroups = { mood: TTag[]; genre: TTag[] }

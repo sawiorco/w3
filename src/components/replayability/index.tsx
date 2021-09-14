@@ -7,7 +7,6 @@ import {
   faSignalBarsGood,
   faSignalBarsStrong,
 } from "@fortawesome/pro-duotone-svg-icons"
-import classNames from "classnames"
 
 import { Section, Checklist, IChecklistItem } from ".."
 

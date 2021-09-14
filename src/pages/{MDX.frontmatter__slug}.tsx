@@ -9,7 +9,7 @@ import Layout from "../components/layout"
 import { Mdx } from "../../graphql-types"
 import { ReviewSidebar } from "../components/reviewSidebar"
 import { TRecord } from "../features/record/types"
-import { Similars, Traits } from "../components"
+import { Features, Similars, Traits } from "../components"
 
 export default function ReviewTemplate({
   data, // this prop will be injected by the GraphQL query below.
@@ -76,6 +76,10 @@ export default function ReviewTemplate({
               <MDXRenderer>{body}</MDXRenderer>
 
               <Traits record={frontmatter} />
+              <Features
+                record={frontmatter}
+                replayValue={frontmatter.replayValue || 1}
+              />
               <Similars sourceRecord={frontmatter} />
             </div>
 
@@ -99,6 +103,7 @@ export const pageQuery = graphql`
         isPublished
         youtubeTrailerId
         steamAppId
+        replayValue
         createdAt(formatString: "MMMM DD, YYYY")
         updatedAt(formatString: "MMMM DD, YYYY")
         tags {

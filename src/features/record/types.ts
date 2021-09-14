@@ -7,6 +7,7 @@ export type TRecord = Pick<
   | "isPublished"
   | "youtubeTrailerId"
   | "steamAppId"
+  | "replayValue"
   | "createdAt"
   | "updatedAt"
 > & {

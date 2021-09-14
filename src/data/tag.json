@@ -108,20 +108,26 @@
   },
 
   {
+    "slug": "relaxing",
+    "title": "Relaxing",
+    "markers": ["mood"]
+  },
+
+  {
+    "slug": "strong-protagonist",
+    "title": "Strong Protagonist",
+    "markers": ["mood"]
+  },
+
+  {
     "slug": "like-a-boss",
-    "title": "Feeling like a boss",
+    "title": "Feel like the boss",
     "markers": ["mood"]
   },
 
   {
     "slug": "kill-everything",
     "title": "Kill Everything",
-    "markers": ["mood"]
-  },
-
-  {
-    "slug": "relaxing",
-    "title": "Relaxing",
     "markers": ["mood"]
   },
 
@@ -158,6 +164,12 @@
   {
     "slug": "mystery",
     "title": "Mystery",
+    "markers": ["theme"]
+  },
+
+  {
+    "slug": "noir",
+    "title": "Noir",
     "markers": ["theme"]
   },
 
@@ -230,13 +242,6 @@
   },
 
   {
-    "slug": "story-rich",
-    "title": "Story Rich",
-    "description": "Beyond the gameplay, this game has a story to tell.",
-    "markers": ["trait"]
-  },
-
-  {
     "slug": "atmospheric",
     "title": "Atmospheric",
     "description": "Its atmosphere is pretty distinctive.",
@@ -253,8 +258,71 @@
   {
     "slug": "open-world",
     "title": "Open World",
-    "description": "...",
+    "description": "You can freely roam the maps of this game.",
+    "markers": ["feature", "replay-factor"]
+  },
+
+  {
+    "slug": "quick-save",
+    "title": "Quick Save",
+    "description": "This game allows you to quickly save its state, usually by pressing a key.",
     "markers": ["feature"]
+  },
+
+  {
+    "slug": "slot-save",
+    "title": "Slot Save",
+    "description": "This game allows you to have multiple saves at the same time, so you can have parallel progress.",
+    "markers": ["feature"]
+  },
+
+  {
+    "slug": "achievements",
+    "title": "Achievements",
+    "description": "Besides the gameplay challenges, this game offers achievements to unlock when you reach certain goals.",
+    "markers": ["feature", "replay-factor"]
+  },
+
+  {
+    "slug": "choices-matter",
+    "title": "Choices matter",
+    "description": "Depending of your choices, usually through dialogues, the world of the game reacts accordingly.",
+    "markers": ["feature", "replay-factor"]
+  },
+
+  {
+    "slug": "full-controller-support",
+    "title": "Full Controller Support",
+    "description": "You can fully play this game with a joystick.",
+    "markers": ["feature"]
+  },
+
+  {
+    "slug": "adjustable-difficulty",
+    "title": "Adjustable Difficulty",
+    "description": "You can tweak the difficulty of the game to fit your playstyle.",
+    "markers": ["feature"]
+  },
+
+  {
+    "slug": "story-rich",
+    "title": "Story Rich",
+    "description": "This game has a story to tell.",
+    "markers": ["feature"]
+  },
+
+  {
+    "slug": "multiple-endings",
+    "title": "Multiple Endings",
+    "description": "Depending of your choices along the way, the ending of this game may vary.",
+    "markers": ["feature", "replay-factor"]
+  },
+
+  {
+    "slug": "mods",
+    "title": "Community Mods",
+    "description": "There are several Mods for this game to extend the gameplay and make it even more fun.",
+    "markers": ["feature", "replay-factor"]
   },
 
   {

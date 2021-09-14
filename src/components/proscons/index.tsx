@@ -18,12 +18,12 @@ export function Proscons({ pros, cons, className, ...rest }: IProscons) {
           Play it if...
         </h2>
 
-        <ul className="mt-2">
+        <ul className="flex flex-col gap-5 mt-2">
           {pros.map(pro => {
             return (
               <li
                 key={pro.toString()}
-                className="flex items-center mt-2 text-lg first:mt-0"
+                className="flex items-center gap-5 text-lg leading-tight"
               >
                 {pro}
               </li>
@@ -38,12 +38,12 @@ export function Proscons({ pros, cons, className, ...rest }: IProscons) {
           Avoid it if...
         </h2>
 
-        <ul className="mt-2">
+        <ul className="flex flex-col gap-5 mt-2">
           {cons.map(con => {
             return (
               <li
                 key={con.toString()}
-                className="flex items-center mt-2 text-lg first:mt-0"
+                className="flex items-center text-lg leading-tight"
               >
                 {con}
               </li>

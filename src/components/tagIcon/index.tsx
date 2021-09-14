@@ -15,6 +15,12 @@ import {
   faArrowsMaximize,
   faSkull,
   faGear,
+  faPenRuler,
+  faEclipse,
+  faStairs,
+  faCalendarClock,
+  faTrophyStar,
+  faCloudCheck,
 } from "@fortawesome/pro-thin-svg-icons"
 
 import { TagJson } from "../../../graphql-types"
@@ -31,6 +37,12 @@ const TAG_ICONS = {
   "multiple-endings": faArrowsMaximize,
   "hardcore-mode": faSkull,
   mods: faGear,
+  "level-editor": faPenRuler,
+  "day-night-cycle": faEclipse,
+  "scalable-difficulty": faStairs,
+  "timed-challenges": faCalendarClock,
+  leaderboards: faTrophyStar,
+  "cloud-save": faCloudCheck,
 }
 
 export function TagIcon({ tag, ...rest }: ITagIcon) {

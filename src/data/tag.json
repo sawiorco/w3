@@ -277,6 +277,13 @@
   },
 
   {
+    "slug": "cloud-save",
+    "title": "Cloud Save",
+    "description": "This game saves on the cloud. You can continue your progress regardless of your device.",
+    "markers": ["feature"]
+  },
+
+  {
     "slug": "achievements",
     "title": "Achievements",
     "description": "Besides the gameplay challenges, this game offers achievements to unlock when you reach certain goals.",
@@ -288,6 +295,20 @@
     "title": "Choices matter",
     "description": "Depending of your choices, usually through dialogues, the world of the game reacts accordingly.",
     "markers": ["feature", "replay-factor"]
+  },
+
+  {
+    "slug": "timed-challenges",
+    "title": "Timed Challenges",
+    "description": "This game offers a different challenge in a time-period basis.",
+    "markers": ["feature", "replay-factor"]
+  },
+
+  {
+    "slug": "leaderboards",
+    "title": "Leaderboards",
+    "description": "This game displays a list with its best-performance players.",
+    "markers": ["feature"]
   },
 
   {
@@ -322,6 +343,34 @@
     "slug": "mods",
     "title": "Community Mods",
     "description": "There are several Mods for this game to extend the gameplay and make it even more fun.",
+    "markers": ["feature", "replay-factor"]
+  },
+
+  {
+    "slug": "level-editor",
+    "title": "Level Editor",
+    "description": "This game includes a built-in Level Editor, so you can customize the environments.",
+    "markers": ["feature", "replay-factor"]
+  },
+
+  {
+    "slug": "day-night-cycle",
+    "title": "Day & Night Cycle",
+    "description": "The game has a full-featured day and night cycle.",
+    "markers": ["feature"]
+  },
+
+  {
+    "slug": "hardcore-mode",
+    "title": "Hardcore Mode",
+    "description": "The game has some sort of a \"Hardcore Mode\", which either increases the difficulty considerably or spins around permanent death. Or both.",
+    "markers": ["feature"]
+  },
+
+  {
+    "slug": "scalable-difficulty",
+    "title": "Scalable Difficulty",
+    "description": "This game unlocks extra difficulties the more you beat it. Usually an opt-in/opt-out feature.",
     "markers": ["feature", "replay-factor"]
   },
 

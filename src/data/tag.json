@@ -12,6 +12,30 @@
   },
 
   {
+    "slug": "grand-strategy",
+    "title": "Grand Strategy",
+    "markers": ["genre"]
+  },
+
+  {
+    "slug": "dungeon-crawler",
+    "title": "Dungeon Crawler",
+    "markers": ["genre"]
+  },
+
+  {
+    "slug": "adventure",
+    "title": "Adventure",
+    "markers": ["genre"]
+  },
+
+  {
+    "slug": "base-building",
+    "title": "Base Building",
+    "markers": ["genre"]
+  },
+
+  {
     "slug": "shooter",
     "title": "Shooter",
     "markers": ["genre"]
@@ -54,6 +78,18 @@
   },
 
   {
+    "slug": "arpg",
+    "title": "ARPG",
+    "markers": ["genre"]
+  },
+
+  {
+    "slug": "war",
+    "title": "War",
+    "markers": ["genre"]
+  },
+
+  {
     "slug": "deckbuilder",
     "title": "Deckbuilder",
     "markers": ["genre"]
@@ -68,6 +104,12 @@
   {
     "slug": "rainy-sunday",
     "title": "Rainy Sunday",
+    "markers": ["mood"]
+  },
+
+  {
+    "slug": "like-a-boss",
+    "title": "Feeling like a boss",
     "markers": ["mood"]
   },
 
@@ -156,6 +198,24 @@
   },
 
   {
+    "slug": "world-war-ii",
+    "title": "World War II",
+    "markers": ["theme"]
+  },
+
+  {
+    "slug": "medieval",
+    "title": "Medieval",
+    "markers": ["theme"]
+  },
+
+  {
+    "slug": "historical",
+    "title": "Historical",
+    "markers": ["theme"]
+  },
+
+  {
     "slug": "well-polished",
     "title": "Well polished",
     "description": "The game is well polished and runs smoothly.",
@@ -188,5 +248,19 @@
     "title": "Immersive",
     "description": "This game makes you forget what reality is.",
     "markers": ["trait"]
+  },
+
+  {
+    "slug": "open-world",
+    "title": "Open World",
+    "description": "...",
+    "markers": ["feature"]
+  },
+
+  {
+    "slug": "online-co-op",
+    "title": "Online Co-Op",
+    "description": "...",
+    "markers": ["feature"]
   }
 ]

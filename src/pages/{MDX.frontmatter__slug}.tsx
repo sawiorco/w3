@@ -9,7 +9,7 @@ import Layout from "../components/layout"
 import { Mdx } from "../../graphql-types"
 import { ReviewSidebar } from "../components/reviewSidebar"
 import { TRecord } from "../features/record/types"
-import { Similars } from "../components"
+import { Similars, Traits } from "../components"
 
 export default function ReviewTemplate({
   data, // this prop will be injected by the GraphQL query below.
@@ -75,6 +75,7 @@ export default function ReviewTemplate({
             <div className="col-span-4">
               <MDXRenderer>{body}</MDXRenderer>
 
+              <Traits record={frontmatter} />
               <Similars sourceRecord={frontmatter} />
             </div>
 
@@ -104,6 +105,7 @@ export const pageQuery = graphql`
           slug
           title
           markers
+          description
         }
         posterImage {
           childImageSharp {

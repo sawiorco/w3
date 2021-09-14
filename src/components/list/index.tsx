@@ -13,7 +13,7 @@ export function List({ className, items, ...rest }: IList) {
     <ul
       className={classNames(
         className,
-        `grid md:grid-cols-2 lg:grid-cols-3 gap-5`
+        `grid md:auto-cols-max md:grid-cols-fit-240 md:auto-rows-min gap-5`
       )}
       {...rest}
     >
@@ -37,7 +37,7 @@ export function List({ className, items, ...rest }: IList) {
             className="flex items-center overflow-hidden bg-gray-800 rounded-lg"
           >
             <span
-              className={`bg-gray-700 self-stretch ${getMoodColor()} items-center flex p-5`}
+              className={`bg-gray-700 self-stretch text-2xl ${getMoodColor()} items-center flex p-5`}
             >
               {mood === "kudos" && <FontAwesomeIcon icon={faStars} />}
               {mood === "positive" && <FontAwesomeIcon icon={faThumbsUp} />}
@@ -52,7 +52,7 @@ export function List({ className, items, ...rest }: IList) {
               )}
             </span>
 
-            <p className="p-5">{item.content}</p>
+            <p className="p-5 text-lg">{item.content}</p>
           </li>
         )
       })}
@@ -69,10 +69,10 @@ const moodColors = {
 
 interface IList
   extends Omit<React.HtmlHTMLAttributes<HTMLUListElement>, "title"> {
-  items: IItem[]
+  items: IListItem[]
 }
 
-interface IItem {
+export interface IListItem {
   mood: "positive" | "negative" | "alert" | "kudos"
-  content: ReactNode
+  content: ReactNode | JSX.Element
 }

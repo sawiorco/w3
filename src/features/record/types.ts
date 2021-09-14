@@ -10,7 +10,7 @@ export type TRecord = Pick<
   | "createdAt"
   | "updatedAt"
 > & {
-  tags: Pick<TagJson, "slug" | "title">[]
+  tags: Pick<TagJson, "slug" | "title" | "description" | "markers">[]
   posterImage: { childImageSharp: Pick<ImageSharp, "gatsbyImageData"> }
   heroImage: { childImageSharp: Pick<ImageSharp, "gatsbyImageData"> }
 }

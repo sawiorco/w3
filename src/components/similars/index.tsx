@@ -40,7 +40,7 @@ export function Similars({ sourceRecord }: ISimilars) {
   }
 
   return (
-    <Section title="You might also like" className="mt-10">
+    <Section title="Similar titles" className="mt-10">
       <div className="grid grid-cols-2 gap-5 mt-5 md:grid-cols-6">
         {shuffle(similarRecords)
           .slice(0, 5)

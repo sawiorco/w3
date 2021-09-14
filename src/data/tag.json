@@ -24,6 +24,12 @@
   },
 
   {
+    "slug": "roguelite",
+    "title": "Roguelite",
+    "markers": ["genre"]
+  },
+
+  {
     "slug": "rainy-sunday",
     "title": "Rainy Sunday",
     "markers": ["mood"]
@@ -44,6 +50,12 @@
   {
     "slug": "just-one-more",
     "title": "\"Just one more\"",
+    "markers": ["mood"]
+  },
+
+  {
+    "slug": "pass-the-time",
+    "title": "Pass the time",
     "markers": ["mood"]
   },
 
@@ -69,5 +81,19 @@
     "slug": "fantasy",
     "title": "Fantasy",
     "markers": ["theme"]
+  },
+
+  {
+    "slug": "well-polished",
+    "title": "Well polished",
+    "description": "The game is well polished and runs smoothly.",
+    "markers": ["trait"]
+  },
+
+  {
+    "slug": "unique-art-style",
+    "title": "Unique Art Style",
+    "description": "The art style is pretty unique.",
+    "markers": ["trait"]
   }
 ]

@@ -8,7 +8,7 @@ export function Checklist({ className, items, ...rest }: IChecklist) {
     <ul
       className={classNames(
         className,
-        `grid lg:grid-cols-3 md:grid-cols-2 gap-5`
+        `grid md:auto-cols-max md:grid-cols-fit-240 md:auto-rows-min gap-5`
       )}
       {...rest}
     >

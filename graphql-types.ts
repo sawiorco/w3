@@ -674,6 +674,7 @@ export type TagJson = Node & {
   slug?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
   markers?: Maybe<Array<Maybe<Scalars['String']>>>;
+  description?: Maybe<Scalars['String']>;
 };
 
 export type SitePlugin = Node & {
@@ -1022,6 +1023,7 @@ export type QueryTagJsonArgs = {
   slug?: Maybe<StringQueryOperatorInput>;
   title?: Maybe<StringQueryOperatorInput>;
   markers?: Maybe<StringQueryOperatorInput>;
+  description?: Maybe<StringQueryOperatorInput>;
 };
 
 
@@ -1165,6 +1167,7 @@ export type TagJsonFilterInput = {
   slug?: Maybe<StringQueryOperatorInput>;
   title?: Maybe<StringQueryOperatorInput>;
   markers?: Maybe<StringQueryOperatorInput>;
+  description?: Maybe<StringQueryOperatorInput>;
 };
 
 export type NodeFilterInput = {
@@ -1426,6 +1429,7 @@ export type FileFieldsEnum =
   | 'childrenMdx___frontmatter___tags___slug'
   | 'childrenMdx___frontmatter___tags___title'
   | 'childrenMdx___frontmatter___tags___markers'
+  | 'childrenMdx___frontmatter___tags___description'
   | 'childrenMdx___frontmatter___slug'
   | 'childrenMdx___frontmatter___posterImage___sourceInstanceName'
   | 'childrenMdx___frontmatter___posterImage___absolutePath'
@@ -1571,6 +1575,7 @@ export type FileFieldsEnum =
   | 'childMdx___frontmatter___tags___slug'
   | 'childMdx___frontmatter___tags___title'
   | 'childMdx___frontmatter___tags___markers'
+  | 'childMdx___frontmatter___tags___description'
   | 'childMdx___frontmatter___slug'
   | 'childMdx___frontmatter___posterImage___sourceInstanceName'
   | 'childMdx___frontmatter___posterImage___absolutePath'
@@ -1890,6 +1895,7 @@ export type FileFieldsEnum =
   | 'childrenTagJson___slug'
   | 'childrenTagJson___title'
   | 'childrenTagJson___markers'
+  | 'childrenTagJson___description'
   | 'childTagJson___id'
   | 'childTagJson___parent___id'
   | 'childTagJson___parent___parent___id'
@@ -1931,6 +1937,7 @@ export type FileFieldsEnum =
   | 'childTagJson___slug'
   | 'childTagJson___title'
   | 'childTagJson___markers'
+  | 'childTagJson___description'
   | 'id'
   | 'parent___id'
   | 'parent___parent___id'
@@ -3022,6 +3029,7 @@ export type MdxFieldsEnum =
   | 'frontmatter___tags___slug'
   | 'frontmatter___tags___title'
   | 'frontmatter___tags___markers'
+  | 'frontmatter___tags___description'
   | 'frontmatter___slug'
   | 'frontmatter___posterImage___sourceInstanceName'
   | 'frontmatter___posterImage___absolutePath'
@@ -3097,11 +3105,13 @@ export type MdxFieldsEnum =
   | 'frontmatter___posterImage___childrenTagJson___slug'
   | 'frontmatter___posterImage___childrenTagJson___title'
   | 'frontmatter___posterImage___childrenTagJson___markers'
+  | 'frontmatter___posterImage___childrenTagJson___description'
   | 'frontmatter___posterImage___childTagJson___id'
   | 'frontmatter___posterImage___childTagJson___children'
   | 'frontmatter___posterImage___childTagJson___slug'
   | 'frontmatter___posterImage___childTagJson___title'
   | 'frontmatter___posterImage___childTagJson___markers'
+  | 'frontmatter___posterImage___childTagJson___description'
   | 'frontmatter___posterImage___id'
   | 'frontmatter___posterImage___parent___id'
   | 'frontmatter___posterImage___parent___children'
@@ -3190,11 +3200,13 @@ export type MdxFieldsEnum =
   | 'frontmatter___heroImage___childrenTagJson___slug'
   | 'frontmatter___heroImage___childrenTagJson___title'
   | 'frontmatter___heroImage___childrenTagJson___markers'
+  | 'frontmatter___heroImage___childrenTagJson___description'
   | 'frontmatter___heroImage___childTagJson___id'
   | 'frontmatter___heroImage___childTagJson___children'
   | 'frontmatter___heroImage___childTagJson___slug'
   | 'frontmatter___heroImage___childTagJson___title'
   | 'frontmatter___heroImage___childTagJson___markers'
+  | 'frontmatter___heroImage___childTagJson___description'
   | 'frontmatter___heroImage___id'
   | 'frontmatter___heroImage___parent___id'
   | 'frontmatter___heroImage___parent___children'
@@ -3642,7 +3654,8 @@ export type TagJsonFieldsEnum =
   | 'internal___type'
   | 'slug'
   | 'title'
-  | 'markers';
+  | 'markers'
+  | 'description';
 
 export type TagJsonGroupConnection = {
   totalCount: Scalars['Int'];

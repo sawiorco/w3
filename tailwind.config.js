@@ -6,6 +6,10 @@ module.exports = {
       padding: "2rem",
     },
     extend: {
+      gridTemplateColumns: {
+        "fit-240": "repeat(auto-fit, minmax(240px, 1fr))",
+      },
+
       height: {
         128: "32rem",
       },
